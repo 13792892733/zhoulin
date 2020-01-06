@@ -1,0 +1,36 @@
+server:
+  ## 设置服务器访问路径（单体项目名称）
+  servlet:
+    context-path: /project_mgj
+  ## 设置服务器启动端口
+  port: 8085
+  
+
+mybatis:
+  ## mapperXML 扫描
+  mapper-locations: com.cxb.project_mgj.mapper/*.xml
+    
+spring: 
+  ## 应用 静态资源(如 图片、媒体、css、js等)存放路径
+  resources:
+    static-locations: classpath:public,classpath:static,file:F:\sysresources190820
+    
+  ## 数据源（连接池）配置
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/mgj
+    username: root
+    password: 123
+    #指定（明确） 非默认配置的第三方数据源类型
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      # 下面为连接池的补充设置，应用到上面所有数据源中
+      # 初始化大小，最小，最大
+      initial-size: 15
+      min-idle: 15
+      max-active: 50
+      # 配置获取连接等待超时的时间
+      max-wait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000

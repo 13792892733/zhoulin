@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cxb.project_mgj.mapper.MyCartMapper" >
+
+
+	<select id="getCartInfoesByUserID" resultType="map">
+ 		SELECT ct.ctid,ct.`gdcount`,gsize.gstext ,img.`gimgurl`,gprice.`price`,goods.`gdname`
+     
+     	 FROM cart ct JOIN goodsinfo goods ON ct.gdid=goods.gdid
+	             JOIN  goodsimage img ON goods.gdid=img.gdid
+	             JOIN  goodssize gsize ON ct.gsid=gsize.gsid
+	             JOIN  goodsprice gprice ON gprice.gdid=goods.gdid
+	             JOIN  USER ON ct.userid=user.userid
+	             
+	            WHERE ct.userid=#{userid} AND img.gimgtype=1 AND gprice.utid=user.utid;
+	</select>
+
+ 	
+</mapper>

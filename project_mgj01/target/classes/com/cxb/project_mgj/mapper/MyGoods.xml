@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cxb.project_mgj.mapper.MyGoods" >
+
+ <select id="getAll" resultType="map">
+	SELECT a.gdid,gdname,gimgurl FROM goodsinfo a
+		LEFT OUTER JOIN goodsimage b
+		ON a.gdid=b.gdid
+		WHERE b.gimgtype=1 and a.gdid &lt;=130;
+ </select>
+
+ <select id="getByLike" resultType="string">
+ 	SELECT gdname  FROM goodsinfo  WHERE  gtkeywords LIKE #{like} LIMIT 8;
+ </select>
+ 
+ <select id="getAllByPrice" resultType="map">
+ 		SELECT goods.gdid,goods.gdname,img.gimgurl,gprice.price FROM goodsinfo goods 
+ 				JOIN goodsimage img ON goods.gdid=img.gdid
+ 				JOIN goodsprice gprice ON goods.gdid=gprice.gdid
+ 				WHERE goods.gdid=#{gdid} AND gprice.utid=1 limit 1;
+ </select>
+ 	
+</mapper>
