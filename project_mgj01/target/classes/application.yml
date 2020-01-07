@@ -19,7 +19,7 @@ spring:
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/mgj
     username: root
-    password: 123
+    password: 111111
     #指定（明确） 非默认配置的第三方数据源类型
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
