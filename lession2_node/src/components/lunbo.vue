@@ -71,28 +71,22 @@
               if(ob.advs_index==3){
                 ob.advs_index=0;
 
-                ob.timer2=window.setInterval(function(){
-                  ob.advs_index=3;
-
-
-                },6000*60*60);
+               setTimeout(function(){
+                 ob.advs_index=3;
+                }, 6000*60*60);
               }
 
               if(ob.advs_index==6){
                 ob.advs_index=3;
-                ob.timer3=window.setInterval(function(){
-                  ob.advs_index=6;
-
-
-                },6000*60*60);
+               setTimeout(function(){
+                 ob.advs_index=6;
+                }, 6000*60*60);
               }
               if(ob.advs_index==9){
                 ob.advs_index=6;
-                ob.timer4=window.setInterval(function(){
-                  ob.advs_index=0;
-
-
-                },6000*60*60);
+               setTimeout(function(){
+                 ob.advs_index=0;
+                }, 6000*60*60);
               }
             },2000);
 
